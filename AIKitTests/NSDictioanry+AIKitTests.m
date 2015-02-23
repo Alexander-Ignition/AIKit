@@ -21,7 +21,7 @@
 - (NSDictionary *)JSON {
     if (!_JSON) {
         return @{ @"number" : @5,
-                  @"string" : @"sring",
+                  @"string" : @"string",
                   @"null"   : [NSNull null],
                   @"array"  : @[ @1, @6, @18 ],
                   @"dict"   : @{ @"k1" : @2, @"k2" : @3} };
@@ -43,11 +43,13 @@
 
 - (void)testAi_stringForKey {
     XCTAssert([self.JSON ai_stringForKey:@"string"]);
+    XCTAssertEqualObjects([self.JSON ai_stringForKey:@"string"], @"string");
     XCTAssertNil([self.JSON ai_stringForKey:@"number"]);
 }
 
 - (void)testAi_numberForKey {
     XCTAssert([self.JSON ai_numberForKey:@"number"]);
+    XCTAssertEqualObjects([self.JSON ai_numberForKey:@"number"], @5);
     XCTAssertNil([self.JSON ai_numberForKey:@"string"]);
 }
 
