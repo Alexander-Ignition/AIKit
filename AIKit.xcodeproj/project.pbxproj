@@ -14,6 +14,8 @@
 		116464DC1A9B95CB00F273A8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116464DB1A9B95CB00F273A8 /* Images.xcassets */; };
 		116464DF1A9B95CB00F273A8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116464DD1A9B95CB00F273A8 /* LaunchScreen.xib */; };
 		116464EB1A9B95CB00F273A8 /* AIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 116464EA1A9B95CB00F273A8 /* AIKitTests.m */; };
+		116464F61A9B963C00F273A8 /* NSDictionary+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 116464F51A9B963C00F273A8 /* NSDictionary+AIKit.m */; };
+		116464F91A9B97C500F273A8 /* NSDictioanry+AIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 116464F81A9B97C500F273A8 /* NSDictioanry+AIKitTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 		116464E41A9B95CB00F273A8 /* AIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		116464E91A9B95CB00F273A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		116464EA1A9B95CB00F273A8 /* AIKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AIKitTests.m; sourceTree = "<group>"; };
+		116464F41A9B963C00F273A8 /* NSDictionary+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+AIKit.h"; path = "Categories/NSDictionary+AIKit.h"; sourceTree = "<group>"; };
+		116464F51A9B963C00F273A8 /* NSDictionary+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+AIKit.m"; path = "Categories/NSDictionary+AIKit.m"; sourceTree = "<group>"; };
+		116464F81A9B97C500F273A8 /* NSDictioanry+AIKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictioanry+AIKitTests.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 			children = (
 				116464D21A9B95CB00F273A8 /* AppDelegate.h */,
 				116464D31A9B95CB00F273A8 /* AppDelegate.m */,
+				116464F71A9B964200F273A8 /* Categories */,
 				116464D51A9B95CB00F273A8 /* ViewController.h */,
 				116464D61A9B95CB00F273A8 /* ViewController.m */,
 				116464D81A9B95CB00F273A8 /* Main.storyboard */,
@@ -105,6 +111,7 @@
 		116464E71A9B95CB00F273A8 /* AIKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				116464F81A9B97C500F273A8 /* NSDictioanry+AIKitTests.m */,
 				116464EA1A9B95CB00F273A8 /* AIKitTests.m */,
 				116464E81A9B95CB00F273A8 /* Supporting Files */,
 			);
@@ -117,6 +124,15 @@
 				116464E91A9B95CB00F273A8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		116464F71A9B964200F273A8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				116464F41A9B963C00F273A8 /* NSDictionary+AIKit.h */,
+				116464F51A9B963C00F273A8 /* NSDictionary+AIKit.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +238,7 @@
 				116464D71A9B95CB00F273A8 /* ViewController.m in Sources */,
 				116464D41A9B95CB00F273A8 /* AppDelegate.m in Sources */,
 				116464D11A9B95CB00F273A8 /* main.m in Sources */,
+				116464F61A9B963C00F273A8 /* NSDictionary+AIKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				116464EB1A9B95CB00F273A8 /* AIKitTests.m in Sources */,
+				116464F91A9B97C500F273A8 /* NSDictioanry+AIKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +430,7 @@
 				116464F01A9B95CB00F273A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		116464F11A9B95CB00F273A8 /* Build configuration list for PBXNativeTarget "AIKitTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +439,7 @@
 				116464F31A9B95CB00F273A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
