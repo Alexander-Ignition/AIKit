@@ -41,5 +41,24 @@
     XCTAssertNil([self.JSON ai_objectForKey:@"null" kindOfClass:[NSDictionary class]]);
 }
 
+- (void)testAi_stringForKey {
+    XCTAssert([self.JSON ai_stringForKey:@"string"]);
+    XCTAssertNil([self.JSON ai_stringForKey:@"number"]);
+}
+
+- (void)testAi_numberForKey {
+    XCTAssert([self.JSON ai_numberForKey:@"number"]);
+    XCTAssertNil([self.JSON ai_numberForKey:@"string"]);
+}
+
+- (void)testAi_arrayForKey {
+    XCTAssert([self.JSON ai_arrayForKey:@"array"]);
+    XCTAssertNil([self.JSON ai_arrayForKey:@"string"]);
+}
+
+- (void)testAi_dictionaryForKey {
+    XCTAssert([self.JSON ai_dictionaryForKey:@"dict"]);
+    XCTAssertNil([self.JSON ai_dictionaryForKey:@"string"]);
+}
 
 @end

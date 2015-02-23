@@ -20,4 +20,20 @@
     return [object isKindOfClass:aClass] ? object : nil;
 }
 
+- (NSString *)ai_stringForKey:(id)key {
+    return [self ai_objectForKey:key kindOfClass:[NSString class]];
+}
+
+- (NSNumber *)ai_numberForKey:(id)key {
+    return [self ai_objectForKey:key kindOfClass:[NSNumber class]];
+}
+
+- (NSArray *)ai_arrayForKey:(id)key {
+    return [self ai_objectForKey:key kindOfClass:[NSArray class]];
+}
+
+- (NSDictionary *)ai_dictionaryForKey:(id)key {
+    return [self ai_objectForKey:key kindOfClass:[NSDictionary class]];
+}
+
 @end

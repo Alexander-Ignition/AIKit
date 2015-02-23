@@ -13,4 +13,10 @@
 - (id)ai_objectForKey:(id)key;
 - (id)ai_objectForKey:(id)key kindOfClass:(Class)aClass;
 
+- (NSString *)ai_stringForKey:(id)key;
+- (NSNumber *)ai_numberForKey:(id)key;
+
+- (NSArray *)ai_arrayForKey:(id)key;
+- (NSDictionary *)ai_dictionaryForKey:(id)key;
+
 @end
