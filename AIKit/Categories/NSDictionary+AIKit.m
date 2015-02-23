@@ -15,4 +15,9 @@
     return [object isEqual:[NSNull null]] ?  nil : object;
 }
 
+- (id)ai_objectForKey:(id)key kindOfClass:(Class)aClass {
+    id object = [self objectForKey:key];
+    return [object isKindOfClass:aClass] ? object : nil;
+}
+
 @end

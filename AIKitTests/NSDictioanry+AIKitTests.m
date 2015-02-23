@@ -35,5 +35,11 @@
     XCTAssertNil([self.JSON ai_objectForKey:@"null"]);
 }
 
+- (void)testAi_objectForKeyKindOfClass {
+    XCTAssert([self.JSON ai_objectForKey:@"number" kindOfClass:[NSNumber class]]);
+    XCTAssertNil([self.JSON ai_objectForKey:@"string" kindOfClass:[NSArray class]]);
+    XCTAssertNil([self.JSON ai_objectForKey:@"null" kindOfClass:[NSDictionary class]]);
+}
+
 
 @end

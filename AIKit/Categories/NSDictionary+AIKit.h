@@ -11,5 +11,6 @@
 @interface NSDictionary (AIKit)
 
 - (id)ai_objectForKey:(id)key;
+- (id)ai_objectForKey:(id)key kindOfClass:(Class)aClass;
 
 @end
