@@ -16,6 +16,7 @@
 		116464EB1A9B95CB00F273A8 /* AIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 116464EA1A9B95CB00F273A8 /* AIKitTests.m */; };
 		116464F61A9B963C00F273A8 /* NSDictionary+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 116464F51A9B963C00F273A8 /* NSDictionary+AIKit.m */; };
 		116464F91A9B97C500F273A8 /* NSDictioanry+AIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 116464F81A9B97C500F273A8 /* NSDictioanry+AIKitTests.m */; };
+		326AEA7B1A9C4FF000DDEFCF /* AIKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 326AEA7A1A9C4FF000DDEFCF /* AIKit.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		116464F41A9B963C00F273A8 /* NSDictionary+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+AIKit.h"; path = "Categories/NSDictionary+AIKit.h"; sourceTree = "<group>"; };
 		116464F51A9B963C00F273A8 /* NSDictionary+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+AIKit.m"; path = "Categories/NSDictionary+AIKit.m"; sourceTree = "<group>"; };
 		116464F81A9B97C500F273A8 /* NSDictioanry+AIKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictioanry+AIKitTests.m"; sourceTree = "<group>"; };
+		326AEA7A1A9C4FF000DDEFCF /* AIKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = AIKit.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				116464CD1A9B95CB00F273A8 /* AIKit */,
 				116464E71A9B95CB00F273A8 /* AIKitTests */,
 				116464CC1A9B95CB00F273A8 /* Products */,
+				326AEA7A1A9C4FF000DDEFCF /* AIKit.podspec */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +221,7 @@
 				116464DA1A9B95CB00F273A8 /* Main.storyboard in Resources */,
 				116464DF1A9B95CB00F273A8 /* LaunchScreen.xib in Resources */,
 				116464DC1A9B95CB00F273A8 /* Images.xcassets in Resources */,
+				326AEA7B1A9C4FF000DDEFCF /* AIKit.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
