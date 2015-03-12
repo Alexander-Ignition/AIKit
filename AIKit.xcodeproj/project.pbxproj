@@ -17,6 +17,8 @@
 		116464F61A9B963C00F273A8 /* NSDictionary+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 116464F51A9B963C00F273A8 /* NSDictionary+AIKit.m */; };
 		116464F91A9B97C500F273A8 /* NSDictioanry+AIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 116464F81A9B97C500F273A8 /* NSDictioanry+AIKitTests.m */; };
 		326AEA7B1A9C4FF000DDEFCF /* AIKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 326AEA7A1A9C4FF000DDEFCF /* AIKit.podspec */; };
+		3292236E1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292236D1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m */; };
+		329223701A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292236F1A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,9 @@
 		116464F51A9B963C00F273A8 /* NSDictionary+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+AIKit.m"; path = "Categories/NSDictionary+AIKit.m"; sourceTree = "<group>"; };
 		116464F81A9B97C500F273A8 /* NSDictioanry+AIKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictioanry+AIKitTests.m"; sourceTree = "<group>"; };
 		326AEA7A1A9C4FF000DDEFCF /* AIKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = AIKit.podspec; sourceTree = "<group>"; };
+		3292236C1A9C7E2C0076815D /* NSJSONSerialization+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSJSONSerialization+AIKit.h"; path = "Categories/NSJSONSerialization+AIKit.h"; sourceTree = "<group>"; };
+		3292236D1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSJSONSerialization+AIKit.m"; path = "Categories/NSJSONSerialization+AIKit.m"; sourceTree = "<group>"; };
+		3292236F1A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSJSONSerialization_AIKitTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +119,7 @@
 		116464E71A9B95CB00F273A8 /* AIKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				3292236F1A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m */,
 				116464F81A9B97C500F273A8 /* NSDictioanry+AIKitTests.m */,
 				116464EA1A9B95CB00F273A8 /* AIKitTests.m */,
 				116464E81A9B95CB00F273A8 /* Supporting Files */,
@@ -134,6 +140,8 @@
 			children = (
 				116464F41A9B963C00F273A8 /* NSDictionary+AIKit.h */,
 				116464F51A9B963C00F273A8 /* NSDictionary+AIKit.m */,
+				3292236C1A9C7E2C0076815D /* NSJSONSerialization+AIKit.h */,
+				3292236D1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3292236E1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m in Sources */,
 				116464D71A9B95CB00F273A8 /* ViewController.m in Sources */,
 				116464D41A9B95CB00F273A8 /* AppDelegate.m in Sources */,
 				116464D11A9B95CB00F273A8 /* main.m in Sources */,
@@ -251,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				116464EB1A9B95CB00F273A8 /* AIKitTests.m in Sources */,
+				329223701A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m in Sources */,
 				116464F91A9B97C500F273A8 /* NSDictioanry+AIKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
