@@ -36,4 +36,29 @@
     return [self ai_objectForKey:key kindOfClass:[NSDictionary class]];
 }
 
+#pragma mark - For Path
+
+- (NSString *)ai_stringFromPath:(NSString *)path {
+    return [self ai_objectFromPath:path kindOfClass:[NSString class]];
+}
+
+- (id)ai_objectFromPath:(NSString *)path kindOfClass:(Class)aClass {
+    return [self ai_objectFromPath:path kindOfClass:aClass separated:@"/"];
+}
+
+- (id)ai_objectFromPath:(NSString *)path kindOfClass:(Class)aClass separated:(NSString *)separator
+{
+    NSArray *keys = [path componentsSeparatedByString:separator];
+    NSDictionary *dict = self;
+    
+    for (NSUInteger i = 0; i < keys.count - 1; i++) {
+        dict = [dict ai_dictionaryForKey:keys[i]];
+        
+        if (dict == nil) {
+            return nil;
+        }
+    }
+    return [dict ai_objectForKey:keys.lastObject kindOfClass:aClass];
+}
+
 @end
