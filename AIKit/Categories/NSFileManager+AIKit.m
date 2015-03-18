@@ -32,4 +32,9 @@ NSString *AIPathForDirectory(NSSearchPathDirectory directory) {
     return [URL setResourceValue: @YES forKey: NSURLIsExcludedFromBackupKey error:outError];
 }
 
++ (NSNumber *)ai_sizeOfFileAtPath:(NSString *)path error:(NSError **)error {
+    NSDictionary *dict = [[self defaultManager] attributesOfItemAtPath:path error:error];
+    return (error) ? nil : dict[NSFileSize];
+}
+
 @end

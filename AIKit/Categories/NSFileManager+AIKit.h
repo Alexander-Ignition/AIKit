@@ -18,4 +18,6 @@ FOUNDATION_EXPORT NSString *AIPathForDirectory(NSSearchPathDirectory directory);
 
 + (BOOL)ai_addSkipBackupAttributeToItemAtURL:(NSURL *)URL error:(NSError **)outError;
 
++ (NSNumber *)ai_sizeOfFileAtPath:(NSString *)path error:(NSError **)error;
+
 @end
