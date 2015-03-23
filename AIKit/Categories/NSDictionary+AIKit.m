@@ -38,15 +38,15 @@
 
 #pragma mark - For Path
 
-- (NSString *)ai_stringFromPath:(NSString *)path {
-    return [self ai_objectFromPath:path kindOfClass:[NSString class]];
+- (NSString *)ai_stringAtPath:(NSString *)path {
+    return [self ai_objectAtPath:path kindOfClass:[NSString class]];
 }
 
-- (id)ai_objectFromPath:(NSString *)path kindOfClass:(Class)aClass {
-    return [self ai_objectFromPath:path kindOfClass:aClass separated:@"/"];
+- (id)ai_objectAtPath:(NSString *)path kindOfClass:(Class)aClass {
+    return [self ai_objectAtPath:path kindOfClass:aClass separated:@"/"];
 }
 
-- (id)ai_objectFromPath:(NSString *)path kindOfClass:(Class)aClass separated:(NSString *)separator
+- (id)ai_objectAtPath:(NSString *)path kindOfClass:(Class)aClass separated:(NSString *)separator
 {
     NSArray *keys = [path componentsSeparatedByString:separator];
     NSDictionary *dict = self;

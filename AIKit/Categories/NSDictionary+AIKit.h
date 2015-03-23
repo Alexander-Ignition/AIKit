@@ -19,8 +19,8 @@
 - (NSArray *)ai_arrayForKey:(id)key;
 - (NSDictionary *)ai_dictionaryForKey:(id)key;
 
-- (NSString *)ai_stringFromPath:(NSString *)path;
-- (id)ai_objectFromPath:(NSString *)path kindOfClass:(Class)aClass;
-- (id)ai_objectFromPath:(NSString *)path kindOfClass:(Class)aClass separated:(NSString *)separator;
+- (NSString *)ai_stringAtPath:(NSString *)path;
+- (id)ai_objectAtPath:(NSString *)path kindOfClass:(Class)aClass;
+- (id)ai_objectAtPath:(NSString *)path kindOfClass:(Class)aClass separated:(NSString *)separator;
 
 @end
