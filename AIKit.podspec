@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "AIKit"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Assistance Kit"
   s.homepage     = "https://github.com/Alexander-Ignition/AIKit"
   s.license      = "MIT (example)"

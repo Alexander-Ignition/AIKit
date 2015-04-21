@@ -37,8 +37,11 @@
     NSMutableArray *mArray = [NSMutableArray arrayWithCapacity:self.count];
     for (id object in self) {
         if (filter(object) == NO) { continue; }
+        
         id newObject = map(object);
+        
         if (newObject == nil) { continue; }
+        
         [mArray addObject:newObject];
     }
     return mArray.count > 0 ? mArray : nil;
