@@ -29,22 +29,33 @@ typedef void (^AISerializerCompletionBlock)(id obj, NSError *error);
 {
     id JSON = [super responseObjectForResponse:response data:data error:error];
     
-    if (!JSON || self.responseType == AIResponseTypeJSON) {
+    Class JSONClass = [self validJSONClass];
+    
+    if (!JSON || !JSONClass) {
         return JSON;
     }
     
-    if (self.responseType == AIResponseTypeDictionary) {
-        if ([JSON isKindOfClass:NSDictionary.class] == NO) {
-            *error = [self badServerResponseError];
-        }
-        
-    } else if (self.responseType == AIResponseTypeArray) {
-        if ([JSON isKindOfClass:NSArray.class] == NO) {
-            *error = [self badServerResponseError];
-        }
+    if ([JSON isKindOfClass:JSONClass] == NO) {
+        *error = [self badServerResponseError];
+        return nil;
     }
     
     return JSON;
+}
+
+- (Class)validJSONClass
+{
+    switch (self.responseType) {
+        case AIResponseTypeDictionary:
+            return [NSDictionary class];
+        
+        case AIResponseTypeArray:
+            return [NSArray class];
+        
+        case AIResponseTypeJSON:
+        default:
+            return nil;
+    }
 }
 
 - (NSError *)badServerResponseError
