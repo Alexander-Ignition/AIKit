@@ -22,6 +22,7 @@
 		3292236E1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292236D1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m */; };
 		329223701A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292236F1A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m */; };
 		32B3676F1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B3676E1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m */; };
+		32B5EC961AE797DB00D3393B /* AIMantleResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B5EC951AE797DB00D3393B /* AIMantleResponseSerializer.m */; };
 		32D974A61AE621C20067D024 /* AIHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D974A51AE621C20067D024 /* AIHTTPSessionManager.m */; };
 		32D974AA1AE623230067D024 /* XCTestCase+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D974A91AE623230067D024 /* XCTestCase+AIKit.m */; };
 		32D974AE1AE623690067D024 /* OHHTTPStubs+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D974AD1AE623690067D024 /* OHHTTPStubs+AIKit.m */; };
@@ -64,6 +65,8 @@
 		3292236F1A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSJSONSerialization_AIKitTests.m; sourceTree = "<group>"; };
 		32B3676D1AB1D0CE00AD4C9E /* NSFileManager+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+AIKit.h"; path = "Categories/NSFileManager+AIKit.h"; sourceTree = "<group>"; };
 		32B3676E1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+AIKit.m"; path = "Categories/NSFileManager+AIKit.m"; sourceTree = "<group>"; };
+		32B5EC941AE797DB00D3393B /* AIMantleResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMantleResponseSerializer.h; path = Networking/AIMantleResponseSerializer.h; sourceTree = "<group>"; };
+		32B5EC951AE797DB00D3393B /* AIMantleResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIMantleResponseSerializer.m; path = Networking/AIMantleResponseSerializer.m; sourceTree = "<group>"; };
 		32D974A41AE621C20067D024 /* AIHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIHTTPSessionManager.h; path = Networking/AIHTTPSessionManager.h; sourceTree = "<group>"; };
 		32D974A51AE621C20067D024 /* AIHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AIHTTPSessionManager.m; path = Networking/AIHTTPSessionManager.m; sourceTree = "<group>"; };
 		32D974A81AE623230067D024 /* XCTestCase+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCTestCase+AIKit.h"; path = "Categories/XCTestCase+AIKit.h"; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 			children = (
 				32D974A41AE621C20067D024 /* AIHTTPSessionManager.h */,
 				32D974A51AE621C20067D024 /* AIHTTPSessionManager.m */,
+				32B5EC941AE797DB00D3393B /* AIMantleResponseSerializer.h */,
+				32B5EC951AE797DB00D3393B /* AIMantleResponseSerializer.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3292236E1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m in Sources */,
+				32B5EC961AE797DB00D3393B /* AIMantleResponseSerializer.m in Sources */,
 				327183061AD5116D009D0180 /* NSArray+AIKit.m in Sources */,
 				32D974A61AE621C20067D024 /* AIHTTPSessionManager.m in Sources */,
 				32B3676F1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m in Sources */,
