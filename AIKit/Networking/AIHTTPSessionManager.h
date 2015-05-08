@@ -25,16 +25,46 @@ typedef NS_ENUM(NSUInteger, AIHTTPMethod) {
 @interface AIHTTPSessionManager : AFHTTPSessionManager
 
 /*!
- @brief Серилизатор JSON в объекты MTLModel
+ @brief Серилизатор ответа сервера в объекты MTLModel
  */
 @property (nonatomic, strong, readonly) AIMantleResponseSerializer *mantleResponseSerializer;
 
+/*!
+ @brief   Запрос на сервер
+          Обертка над методами AFHTTPSessionManager
+ @param   method     HTTP метод
+ @param   URLString  Относитьный или абсолютный путь
+ @param   parameters NSDictionary (id выбран для соответсвия сигнатуре методов AFHTTPSessionManager) 
+                     Может принимать nil. Вставка параметров зависит от method
+                     AIHTTPMethodGET  -> parameters -> URLString
+                     AIHTTPMethodPOST -> parameters -> body
+ @param   success    Блок успешности запроса и парсингв данных
+ @param   failure    Блок с ошибкой запроса или парсинга данных
+ @return  NSURLSessionDataTask
+ */
 - (NSURLSessionDataTask *)method:(AIHTTPMethod)method
                        URLString:(NSString *)URLString
                       parameters:(id)parameters
                          success:(AIHTTPSuccessBlock)success
                          failure:(AIHTTPFailureBlock)failure;
 
+/*!
+ @brief   Запрос на сервер
+          Обертка над -method:URLString:parameters:success:failure:
+          Парсит в объект класса modelOfClass
+ @param   method        HTTP метод
+ @param   URLString     Относитьный или абсолютный путь
+ @param   parameters    NSDictionary (id выбран для соответсвия сигнатуре методов AFHTTPSessionManager)
+                        Может принимать nil. Вставка параметров зависит от method
+                        AIHTTPMethodGET  -> parameters -> URLString
+                        AIHTTPMethodPOST -> parameters -> body
+ @param   modelOfClass  Класс для парсинга. Наследник MTLModel
+ @param   key           Ключ по которому в JSON лежит объект для парсинга. 
+                        Может принимать nil, тогда будет парситься весь JSON.
+ @param   success       Блок успешности запроса и парсингв данных
+ @param   failure       Блок с ошибкой запроса или парсинга данных
+ @return  NSURLSessionDataTask
+ */
 - (NSURLSessionDataTask *)method:(AIHTTPMethod)method
                        URLString:(NSString *)URLString
                       parameters:(id)parameters
@@ -43,6 +73,23 @@ typedef NS_ENUM(NSUInteger, AIHTTPMethod) {
                          success:(AIHTTPSuccessBlock)success
                          failure:(AIHTTPFailureBlock)failure;
 
+/*!
+ @brief   Запрос на сервер
+          Обертка над -method:URLString:parameters:success:failure:
+          Парсит в МАССИВ объект класса modelOfClass
+ @param   method        HTTP метод
+ @param   URLString     Относитьный или абсолютный путь
+ @param   parameters    NSDictionary (id выбран для соответсвия сигнатуре методов AFHTTPSessionManager)
+                        Может принимать nil. Вставка параметров зависит от method
+                        AIHTTPMethodGET  -> parameters -> URLString
+                        AIHTTPMethodPOST -> parameters -> body
+ @param   modelOfClass  Класс для парсинга. Наследник MTLModel
+ @param   key           Ключ по которому в JSON лежит объект для парсинга.
+                        Может принимать nil, тогда будет парситься весь JSON.
+ @param   success       Блок успешности запроса и парсингв данных
+ @param   failure       Блок с ошибкой запроса или парсинга данных
+ @return  NSURLSessionDataTask
+ */
 - (NSURLSessionDataTask *)method:(AIHTTPMethod)method
                        URLString:(NSString *)URLString
                       parameters:(id)parameters
