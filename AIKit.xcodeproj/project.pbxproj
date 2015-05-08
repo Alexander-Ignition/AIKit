@@ -19,6 +19,7 @@
 		2B8D337C6EF2943CF621547B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F44E6F5E1ECEDC79E09A18 /* libPods.a */; };
 		326AEA7B1A9C4FF000DDEFCF /* AIKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 326AEA7A1A9C4FF000DDEFCF /* AIKit.podspec */; };
 		327183061AD5116D009D0180 /* NSArray+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 327183051AD5116D009D0180 /* NSArray+AIKit.m */; };
+		328F64BA1AFCCCC900EA0B4B /* MTLValueTransformer+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 328F64B91AFCCCC900EA0B4B /* MTLValueTransformer+AIKit.m */; };
 		3292236E1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292236D1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m */; };
 		329223701A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292236F1A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m */; };
 		32B3676F1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B3676E1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m */; };
@@ -60,6 +61,8 @@
 		326AEA7A1A9C4FF000DDEFCF /* AIKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = AIKit.podspec; sourceTree = "<group>"; };
 		327183041AD5116D009D0180 /* NSArray+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+AIKit.h"; path = "Categories/NSArray+AIKit.h"; sourceTree = "<group>"; };
 		327183051AD5116D009D0180 /* NSArray+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+AIKit.m"; path = "Categories/NSArray+AIKit.m"; sourceTree = "<group>"; };
+		328F64B81AFCCCC900EA0B4B /* MTLValueTransformer+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MTLValueTransformer+AIKit.h"; path = "Networking/MTLValueTransformer+AIKit.h"; sourceTree = "<group>"; };
+		328F64B91AFCCCC900EA0B4B /* MTLValueTransformer+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MTLValueTransformer+AIKit.m"; path = "Networking/MTLValueTransformer+AIKit.m"; sourceTree = "<group>"; };
 		3292236C1A9C7E2C0076815D /* NSJSONSerialization+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSJSONSerialization+AIKit.h"; path = "Categories/NSJSONSerialization+AIKit.h"; sourceTree = "<group>"; };
 		3292236D1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSJSONSerialization+AIKit.m"; path = "Categories/NSJSONSerialization+AIKit.m"; sourceTree = "<group>"; };
 		3292236F1A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSJSONSerialization_AIKitTests.m; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				32D974A51AE621C20067D024 /* AIHTTPSessionManager.m */,
 				32B5EC941AE797DB00D3393B /* AIMantleResponseSerializer.h */,
 				32B5EC951AE797DB00D3393B /* AIMantleResponseSerializer.m */,
+				328F64B81AFCCCC900EA0B4B /* MTLValueTransformer+AIKit.h */,
+				328F64B91AFCCCC900EA0B4B /* MTLValueTransformer+AIKit.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				328F64BA1AFCCCC900EA0B4B /* MTLValueTransformer+AIKit.m in Sources */,
 				3292236E1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m in Sources */,
 				32B5EC961AE797DB00D3393B /* AIMantleResponseSerializer.m in Sources */,
 				327183061AD5116D009D0180 /* NSArray+AIKit.m in Sources */,
