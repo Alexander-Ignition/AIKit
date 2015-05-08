@@ -53,7 +53,6 @@
                        URLString:(NSString *)URLString
                       parameters:(id)parameters
                     modelOfClass:(Class)modelClass
-                         inArray:(BOOL)inArray
                           forKey:(NSString *)key
                          success:(AIHTTPSuccessBlock)success
                          failure:(AIHTTPFailureBlock)failure;
@@ -64,13 +63,37 @@
              parameters:parameters
                 success:^(NSURLSessionDataTask *task, id object) {
                     
-                    [weakSelf.mantleResponseSerializer parse:object
-                                                       model:modelClass
-                                                     inArray:inArray
-                                                      forKey:key
-                                                        task:task
-                                                     success:success
-                                                     failure:failure];
+                    [weakSelf.mantleResponseSerializer parseJSON:object
+                                                          forKey:key
+                                                         inModel:modelClass
+                                                         inArray:NO
+                                                            task:task
+                                                         success:success
+                                                         failure:failure];
+                } failure:failure];
+}
+
+- (NSURLSessionDataTask *)method:(AIHTTPMethod)method
+                       URLString:(NSString *)URLString
+                      parameters:(id)parameters
+                   modelsOfClass:(Class)modelClass
+                          forKey:(NSString *)key
+                         success:(AIHTTPSuccessArrayBlock)success
+                         failure:(AIHTTPFailureBlock)failure;
+{
+    __weak __typeof(self)weakSelf = self;
+    return [self method:method
+              URLString:URLString
+             parameters:parameters
+                success:^(NSURLSessionDataTask *task, id object) {
+                    
+                    [weakSelf.mantleResponseSerializer parseJSON:object
+                                                          forKey:key
+                                                         inModel:modelClass
+                                                         inArray:YES
+                                                            task:task
+                                                         success:success
+                                                         failure:failure];
                 } failure:failure];
 }
 

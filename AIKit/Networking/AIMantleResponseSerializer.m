@@ -10,8 +10,6 @@
 #import "NSDictionary+AIKit.h"
 #import <Mantle/MTLJSONAdapter.h>
 
-typedef void (^AISerializerCompletionBlock)(id obj, NSError *error);
-
 @implementation AIMantleResponseSerializer
 
 - (instancetype)init {
@@ -29,152 +27,98 @@ typedef void (^AISerializerCompletionBlock)(id obj, NSError *error);
 {
     id JSON = [super responseObjectForResponse:response data:data error:error];
     
-    Class JSONClass = [self validJSONClass];
+    Class JSONClass = [self classFromType:self.responseType];
     
     if (!JSON || !JSONClass) {
         return JSON;
     }
     
     if ([JSON isKindOfClass:JSONClass] == NO) {
-        *error = [self badServerResponseError];
+        *error = [self errorBadServerResponse];
         return nil;
+    }
+    
+    if (self.responseHandler) {
+        *error = self.responseHandler(response, JSON);
+        if (error) {
+            return nil;
+        }
     }
     
     return JSON;
 }
 
-- (Class)validJSONClass
-{
-    switch (self.responseType) {
+- (Class)classFromType:(AIResponseType)type {
+    switch (type) {
         case AIResponseTypeDictionary:
             return [NSDictionary class];
-        
+            
         case AIResponseTypeArray:
             return [NSArray class];
-        
+            
         case AIResponseTypeJSON:
         default:
             return nil;
     }
 }
 
-- (NSError *)badServerResponseError
-{
+- (NSError *)errorBadServerResponse {
     return [[NSError alloc] initWithDomain:NSURLErrorDomain
                                       code:NSURLErrorBadServerResponse
                                   userInfo:nil];
 }
 
-#pragma mark - Response for Key
+#pragma mark - Mantle
 
-- (void)parse:(id)object
-        model:(Class)model
-      inArray:(BOOL)inArray
-       forKey:(NSString *)key
-         task:(NSURLSessionDataTask *)task
-      success:(AISerializerAnyBlock)success
-      failure:(AISerializerErrorBlock)failure
+- (void)parseJSON:(id)JSON
+           forKey:(NSString *)key
+          inModel:(Class)modelClass
+          inArray:(BOOL)inArray
+             task:(NSURLSessionDataTask *)task
+          success:(AISerializerAnyBlock)success
+          failure:(AISerializerErrorBlock)failure
 {
-    if (key) {
-        if ([object isKindOfClass:NSDictionary.class]) {
-            
-            NSDictionary *dict = (NSDictionary *)object;
-            id obj = [dict ai_objectForKey:key];
-            [self parse:obj model:model inArray:inArray task:task success:success failure:failure];
-        
-        } else {
-            
-            NSError *error = [self badServerResponseError];
-            [self sendObject:error withTask:task inBlock:failure];
-        }
-        
-    } else {
-        [self parse:object model:model inArray:inArray task:task success:success failure:failure];
-    }
-}
-
-#pragma mark - Response
-
-- (void)parse:(id)object
-        model:(Class)model
-       inArray:(BOOL)inArray
-          task:(NSURLSessionDataTask *)task
-       success:(AISerializerAnyBlock)success
-       failure:(AISerializerErrorBlock)failure
-{
-    [self parse:object model:model inArray:inArray completion:^(id obj, NSError *error) {
-        if (object) {
-            [self sendObject:obj withTask:task inBlock:success];
+    id object = [self objectFromJSON:JSON forKey:key];
+    
+    [self parseJSON:object inModel:modelClass inArray:inArray completion:^(id model, NSError *error) {
+        if (model) {
+            [self sendObject:model withTask:task inBlock:success];
         } else {
             [self sendObject:error withTask:task inBlock:failure];
         }
     }];
 }
 
-#pragma mark - JSON Parse
-
-- (void)parse:(id)object
-        model:(Class)model
-      inArray:(BOOL)inArray
-   completion:(AISerializerCompletionBlock)completion
+- (id)objectFromJSON:(id)JSON forKey:(id)key
 {
-    if ([self isJSONClass:model]) {
-        [self parse:object JSONModel:model inArray:inArray completion:completion];
-    } else {
-        [self parse:object MTLModel:model inArray:inArray completion:completion];
+    if (key && [JSON isKindOfClass:[NSDictionary class]]) {
+        return [JSON ai_objectForKey:key];
     }
+    return JSON;
 }
 
-- (BOOL)isJSONClass:(Class)aClass {
-    return [aClass isSubclassOfClass:NSDictionary.class] || [aClass isSubclassOfClass:NSArray.class];
-}
-
-- (void)parse:(id)object
-    JSONModel:(Class)model
-      inArray:(BOOL)inArray
-   completion:(AISerializerCompletionBlock)completion
+- (void)parseJSON:(id)JSON
+          inModel:(Class)modelClass
+          inArray:(BOOL)inArray
+       completion:(void (^)(id model, NSError *error))completion
 {
-    NSError *error;
-    id obj = [self parse:object JSONModel:model inArray:inArray error:&error];
-    if (completion) {
-        completion(obj, error);
-    }
-}
-
-- (id)parse:(id)object JSONModel:(Class)model inArray:(BOOL)inArray error:(NSError **)error
-{
-    Class aClass = inArray ? [NSArray class] : [NSDictionary class];
-    if ([model isSubclassOfClass:aClass] && [object isKindOfClass:aClass]) {
-        return object;
-    }
-    *error = [self badServerResponseError];
-    return nil;
-}
-
-#pragma mark - Mantle
-
-- (void)parse:(id)object
-     MTLModel:(Class)model
-      inArray:(BOOL)inArray
-   completion:(AISerializerCompletionBlock)completion
-{
+    NSParameterAssert(completion);
+    
     dispatch_async(self.dispatch_queue, ^{
         NSError *error;
-        id obj = [self parse:object MTLModel:model inArray:inArray error:&error];
+        id model = [self parseJSON:JSON inModel:modelClass inArray:inArray error:&error];
         
-        if (completion) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(obj, error);
-            });
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(model, error);
+        });
     });
 }
 
-- (id)parse:(id)object MTLModel:(Class)model inArray:(BOOL)inArray error:(NSError **)error {
+- (id)parseJSON:(id)JSON inModel:(Class)model inArray:(BOOL)inArray error:(NSError **)error {
     if (inArray) {
-        return [MTLJSONAdapter modelsOfClass:model fromJSONArray:object error:error];
+        return [MTLJSONAdapter modelsOfClass:model fromJSONArray:JSON error:error];
     }
-    return [MTLJSONAdapter modelOfClass:model fromJSONDictionary:object error:error];
+    return [MTLJSONAdapter modelOfClass:model fromJSONDictionary:JSON error:error];
 }
 
 #pragma mark - Perform Block

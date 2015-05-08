@@ -8,10 +8,11 @@
 
 #import <AFNetworking/AFHTTPSessionManager.h>
 
-#import "AIMantleResponseSerializer.h"
+@class AIMantleResponseSerializer;
 
-typedef void (^AIHTTPSuccessBlock)(NSURLSessionDataTask *task, id object);
+typedef void (^AIHTTPSuccessBlock)(NSURLSessionDataTask *task, id model);
 typedef void (^AIHTTPFailureBlock)(NSURLSessionDataTask *task, NSError *error);
+typedef void (^AIHTTPSuccessArrayBlock)(NSURLSessionDataTask *task, NSArray *models);
 
 typedef NS_ENUM(NSUInteger, AIHTTPMethod) {
     AIHTTPMethodGET,
@@ -23,6 +24,9 @@ typedef NS_ENUM(NSUInteger, AIHTTPMethod) {
 
 @interface AIHTTPSessionManager : AFHTTPSessionManager
 
+/*!
+ @brief Серилизатор JSON в объекты MTLModel
+ */
 @property (nonatomic, strong, readonly) AIMantleResponseSerializer *mantleResponseSerializer;
 
 - (NSURLSessionDataTask *)method:(AIHTTPMethod)method
@@ -35,9 +39,16 @@ typedef NS_ENUM(NSUInteger, AIHTTPMethod) {
                        URLString:(NSString *)URLString
                       parameters:(id)parameters
                     modelOfClass:(Class)modelClass
-                         inArray:(BOOL)inArray
                           forKey:(NSString *)key
                          success:(AIHTTPSuccessBlock)success
+                         failure:(AIHTTPFailureBlock)failure;
+
+- (NSURLSessionDataTask *)method:(AIHTTPMethod)method
+                       URLString:(NSString *)URLString
+                      parameters:(id)parameters
+                   modelsOfClass:(Class)modelClass
+                          forKey:(NSString *)key
+                         success:(AIHTTPSuccessArrayBlock)success
                          failure:(AIHTTPFailureBlock)failure;
 @end
 
