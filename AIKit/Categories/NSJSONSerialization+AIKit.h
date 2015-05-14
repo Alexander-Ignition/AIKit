@@ -18,9 +18,9 @@ typedef NS_ENUM(NSUInteger, AIJSONSerializationError) {
 @interface NSJSONSerialization (AIKit)
 
 // NSString From JSON
-+ (NSString *)stringFromJSONDictionary:(NSDictionary *)JSONDictionary error:(NSError **)error;
-+ (NSString *)stringFromJSONArray:(NSArray *)JSONArray error:(NSError **)error;
-+ (NSString *)stringFromJSON:(id)JSON error:(NSError **)error;
++ (NSString *)ai_stringFromJSONDictionary:(NSDictionary *)JSONDictionary error:(NSError **)error;
++ (NSString *)ai_stringFromJSONArray:(NSArray *)JSONArray error:(NSError **)error;
++ (NSString *)ai_stringFromJSON:(id)JSON error:(NSError **)error;
 
 // JSON From NSString
 //+ (NSDictionary *)JSONDictionaryFromString:(NSString *)string error:(NSError **)error;

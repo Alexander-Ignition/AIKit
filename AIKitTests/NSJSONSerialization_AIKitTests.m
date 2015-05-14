@@ -28,14 +28,15 @@
 
 - (void)testStringFromJSON {
     NSError *error;
-    NSString *JSONString = [NSJSONSerialization stringFromJSON:@"dvdfbfdb" error:&error];
+    NSDictionary *JSON = @{@"key1": @1, @"key2": @"value2"};
+    NSString *JSONString = [NSJSONSerialization ai_stringFromJSON:JSON error:&error];
     XCTAssert(JSONString);
     XCTAssertNil(error);
 }
 
 - (void)testStringFromJSONFail {
     NSError *error;
-    NSString *JSONString = [NSJSONSerialization stringFromJSON:@"dvdfbfdb" error:&error];
+    NSString *JSONString = [NSJSONSerialization ai_stringFromJSON:@"dvdfbfdb" error:&error];
     XCTAssertNil(JSONString);
     XCTAssertEqualObjects(error.domain, AIJSONSerializationErrorDomain);
     XCTAssertEqual(error.code, AIJSONSerializationErrorInvalidType);

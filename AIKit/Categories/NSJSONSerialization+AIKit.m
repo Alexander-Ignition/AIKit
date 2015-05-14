@@ -14,28 +14,28 @@ NSString * const AIJSONSerializationErrorDomain = @"AIJSONSerializationErrorDoma
 
 #pragma mark - NSString From JSON
 
-+ (NSString *)stringFromJSONDictionary:(NSDictionary *)JSONDictionary error:(NSError **)error {
-    return [self stringFromJSON:JSONDictionary error:error];
++ (NSString *)ai_stringFromJSONDictionary:(NSDictionary *)JSONDictionary error:(NSError **)error {
+    return [self ai_stringFromJSON:JSONDictionary error:error];
 }
 
-+ (NSString *)stringFromJSONArray:(NSArray *)JSONArray error:(NSError **)error {
-    return [self stringFromJSON:JSONArray error:error];
++ (NSString *)ai_stringFromJSONArray:(NSArray *)JSONArray error:(NSError **)error {
+    return [self ai_stringFromJSON:JSONArray error:error];
 }
 
-+ (NSString *)stringFromJSON:(id)JSON error:(NSError **)error
++ (NSString *)ai_stringFromJSON:(id)JSON error:(NSError **)error
 {
     if ([self isValidJSONObject:JSON]) {
-        
         NSData *dataFromJSON = [NSJSONSerialization dataWithJSONObject:JSON options:0 error:error];
-        if (dataFromJSON) {
-            return [[NSString alloc] initWithData:dataFromJSON encoding:NSUTF8StringEncoding];
-        }
-        return nil;
+        return [[NSString alloc] initWithData:dataFromJSON encoding:NSUTF8StringEncoding];
     }
     if (error != NULL) {
+        NSDictionary *userInfo = @{
+            NSLocalizedDescriptionKey: NSLocalizedString(@"JSON Invalid Type", nil),
+            NSLocalizedFailureReasonErrorKey: [NSString stringWithFormat:NSLocalizedString(@"String could not be created because an invalid JSON type: %@", nil), NSStringFromClass([JSON class])]
+        };
         *error = [NSError errorWithDomain:AIJSONSerializationErrorDomain
                                      code:AIJSONSerializationErrorInvalidType
-                                 userInfo:nil];
+                                 userInfo:userInfo];
     }
     return nil;
 }
