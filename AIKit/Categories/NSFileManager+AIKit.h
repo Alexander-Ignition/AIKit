@@ -13,11 +13,11 @@ FOUNDATION_EXPORT NSString *AIPathForDirectory(NSSearchPathDirectory directory);
 
 @interface NSFileManager (AIKit)
 
-+ (NSURL *)ai_URLForDocumentDirectory;
-+ (NSURL *)ai_URLForDirectory:(NSSearchPathDirectory)directory;
+- (NSURL *)ai_URLForDocumentDirectory;
+- (NSURL *)ai_URLForDirectory:(NSSearchPathDirectory)directory;
 
 + (BOOL)ai_addSkipBackupAttributeToItemAtURL:(NSURL *)URL error:(NSError **)outError;
 
-+ (NSNumber *)ai_sizeOfFileAtPath:(NSString *)path error:(NSError **)error;
+- (NSNumber *)ai_sizeOfFileAtPath:(NSString *)path error:(NSError **)error;
 
 @end

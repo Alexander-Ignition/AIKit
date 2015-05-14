@@ -18,22 +18,22 @@ NSString *AIPathForDirectory(NSSearchPathDirectory directory) {
 
 @implementation NSFileManager (AIKit)
 
-+ (NSURL *)ai_URLForDocumentDirectory {
+- (NSURL *)ai_URLForDocumentDirectory {
     return [self ai_URLForDirectory:NSDocumentDirectory];
 }
 
-+ (NSURL *)ai_URLForDirectory:(NSSearchPathDirectory)directory {
-    return [[[self defaultManager] URLsForDirectory:directory inDomains:NSUserDomainMask] lastObject];
+- (NSURL *)ai_URLForDirectory:(NSSearchPathDirectory)directory {
+    return [[self URLsForDirectory:directory inDomains:NSUserDomainMask] lastObject];
 }
 
 // https://developer.apple.com/library/IOS/qa/qa1719/_index.html
 + (BOOL)ai_addSkipBackupAttributeToItemAtURL:(NSURL *)URL error:(NSError **)outError {
     assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
-    return [URL setResourceValue: @YES forKey: NSURLIsExcludedFromBackupKey error:outError];
+    return [URL setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:outError];
 }
 
-+ (NSNumber *)ai_sizeOfFileAtPath:(NSString *)path error:(NSError **)error {
-    NSDictionary *dict = [[self defaultManager] attributesOfItemAtPath:path error:error];
+- (NSNumber *)ai_sizeOfFileAtPath:(NSString *)path error:(NSError **)error {
+    NSDictionary *dict = [self attributesOfItemAtPath:path error:error];
     return (error) ? nil : dict[NSFileSize];
 }
 
