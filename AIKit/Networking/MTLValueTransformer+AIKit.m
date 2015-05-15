@@ -7,33 +7,49 @@
 //
 
 #import "MTLValueTransformer+AIKit.h"
+#import <Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.h>
 
 @implementation MTLValueTransformer (AIKit)
 
-+ (instancetype)ai_reversibleTransformerStringWithForwardBlock:(id (^)(NSString *str))forwardBlock
-                                               reverseBlock:(NSString *(^)(id object))reverseBlock
++ (instancetype)ai_transformerFromClass:(Class)fromClass
+                           forwardBlock:(id (^)(id object))forwardBlock
+                           reverseBlock:(id (^)(id object))reverseBlock
 {
-    return [self ai_reversibleTransformerWithModel:[NSString class] forwardBlock:forwardBlock reverseBlock:reverseBlock];
-}
-
-+ (instancetype)ai_reversibleTransformerArrayWithForwardBlock:(id (^)(NSArray *array))forwardBlock
-                                              reverseBlock:(NSArray *(^)(id object))reverseBlock
-{
-    return [self ai_reversibleTransformerWithModel:[NSArray class] forwardBlock:forwardBlock reverseBlock:reverseBlock];
-}
-
-+ (instancetype)ai_reversibleTransformerWithModel:(Class)aModel
-                                  forwardBlock:(id (^)(id object))forwardBlock
-                                  reverseBlock:(id (^)(id object))reverseBlock
-{
-    NSParameterAssert(aModel != nil);
-    NSParameterAssert(forwardBlock != nil);
-    NSParameterAssert(reverseBlock != nil);
+    NSParameterAssert(fromClass != nil);
     
     return [self reversibleTransformerWithForwardBlock:^id(id object) {
-        if ([object isKindOfClass:aModel] == NO) { return nil; }
-        return forwardBlock(object);
+        if ([object isKindOfClass:fromClass]) {
+            return forwardBlock(object);
+        }
+        return nil;
     } reverseBlock:reverseBlock];
 }
 
++ (instancetype)ai_valueTransformerWithDateFormatter:(NSDateFormatter *)dateFormatter
+{
+    NSParameterAssert(dateFormatter != nil);
+    
+    return [self ai_transformerFromClass:[NSString class] forwardBlock:^NSDate *(NSString *str) {
+        return [dateFormatter dateFromString:str];
+    } reverseBlock:^NSString *(NSDate *date) {
+        return [dateFormatter stringFromDate:date];
+    }];
+}
+
 @end
+
+@implementation NSValueTransformer (AIKit)
+
++ (instancetype)ai_valueTransformerWithEnum:(NSArray *)aEnum
+                               defaultValue:(NSNumber *)defaultValue
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjects:aEnum
+                                                     forKeys:aEnum];
+    
+    return [self mtl_valueMappingTransformerWithDictionary:dict
+                                              defaultValue:defaultValue
+                                       reverseDefaultValue:defaultValue];
+}
+
+@end
+

@@ -10,14 +10,17 @@
 
 @interface MTLValueTransformer (AIKit)
 
-+ (instancetype)ai_reversibleTransformerStringWithForwardBlock:(id (^)(NSString *str))forwardBlock
-                                                  reverseBlock:(NSString *(^)(id object))reverseBlock;
++ (instancetype)ai_transformerFromClass:(Class)fromClass
+                           forwardBlock:(id (^)(id object))forwardBlock
+                           reverseBlock:(id (^)(id object))reverseBlock;
 
-+ (instancetype)ai_reversibleTransformerArrayWithForwardBlock:(id (^)(NSArray *array))forwardBlock
-                                                 reverseBlock:(NSArray *(^)(id object))reverseBlock;
++ (instancetype)ai_valueTransformerWithDateFormatter:(NSDateFormatter *)dateFormatter;
 
-+ (instancetype)ai_reversibleTransformerWithModel:(Class)aModel
-                                     forwardBlock:(id (^)(id object))forwardBlock
-                                     reverseBlock:(id (^)(id object))reverseBlock;
+@end
+
+@interface NSValueTransformer (AIKit)
+
++ (instancetype)ai_valueTransformerWithEnum:(NSArray *)aEnum
+                               defaultValue:(NSNumber *)defaultValue;
 
 @end

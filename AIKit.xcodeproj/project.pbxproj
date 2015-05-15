@@ -28,6 +28,7 @@
 		32D974AA1AE623230067D024 /* XCTestCase+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D974A91AE623230067D024 /* XCTestCase+AIKit.m */; };
 		32D974AE1AE623690067D024 /* OHHTTPStubs+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D974AD1AE623690067D024 /* OHHTTPStubs+AIKit.m */; };
 		32D974B01AE6247E0067D024 /* AIHTTPSessionManager_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D974AF1AE6247E0067D024 /* AIHTTPSessionManager_Tests.m */; };
+		32F7B0171B05C86A00BC5F8D /* MTLValueTransformer_AIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F7B0161B05C86A00BC5F8D /* MTLValueTransformer_AIKitTests.m */; };
 		CDFF11B91F8EA3A3D24707F1 /* libPods-AIKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD39F08397EC28E382CDCF54 /* libPods-AIKitTests.a */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		32D974AC1AE623690067D024 /* OHHTTPStubs+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "OHHTTPStubs+AIKit.h"; path = "Categories/OHHTTPStubs+AIKit.h"; sourceTree = "<group>"; };
 		32D974AD1AE623690067D024 /* OHHTTPStubs+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "OHHTTPStubs+AIKit.m"; path = "Categories/OHHTTPStubs+AIKit.m"; sourceTree = "<group>"; };
 		32D974AF1AE6247E0067D024 /* AIHTTPSessionManager_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIHTTPSessionManager_Tests.m; sourceTree = "<group>"; };
+		32F7B0161B05C86A00BC5F8D /* MTLValueTransformer_AIKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTLValueTransformer_AIKitTests.m; sourceTree = "<group>"; };
 		48F44E6F5E1ECEDC79E09A18 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A07B57FCCE6BE348E9C28598 /* Pods-AIKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AIKitTests/Pods-AIKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C21BF628563054407B690A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				116464F81A9B97C500F273A8 /* NSDictioanry+AIKitTests.m */,
 				116464EA1A9B95CB00F273A8 /* AIKitTests.m */,
 				32D974AF1AE6247E0067D024 /* AIHTTPSessionManager_Tests.m */,
+				32F7B0161B05C86A00BC5F8D /* MTLValueTransformer_AIKitTests.m */,
 				116464E81A9B95CB00F273A8 /* Supporting Files */,
 			);
 			path = AIKitTests;
@@ -420,6 +423,7 @@
 				32D974B01AE6247E0067D024 /* AIHTTPSessionManager_Tests.m in Sources */,
 				116464EB1A9B95CB00F273A8 /* AIKitTests.m in Sources */,
 				32D974AA1AE623230067D024 /* XCTestCase+AIKit.m in Sources */,
+				32F7B0171B05C86A00BC5F8D /* MTLValueTransformer_AIKitTests.m in Sources */,
 				329223701A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m in Sources */,
 				116464F91A9B97C500F273A8 /* NSDictioanry+AIKitTests.m in Sources */,
 				32D974AE1AE623690067D024 /* OHHTTPStubs+AIKit.m in Sources */,
