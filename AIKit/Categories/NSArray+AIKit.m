@@ -11,18 +11,18 @@
 @implementation NSArray (AIKit)
 
 - (NSArray *)ai_numberMap:(id (^)(NSNumber *number))map {
-    return [self ai_filterIsKindOfClass:[NSNumber class] map:map];
+    return [self ai_objectsOfClass:[NSNumber class] map:map];
 }
 
 - (NSArray *)ai_stringMap:(id (^)(NSString *string))map {
-    return [self ai_filterIsKindOfClass:[NSString class] map:map];
+    return [self ai_objectsOfClass:[NSString class] map:map];
 }
 
 - (NSArray *)ai_arrayMap:(id (^)(NSArray *array))map {
-    return [self ai_filterIsKindOfClass:[NSArray class] map:map];
+    return [self ai_objectsOfClass:[NSArray class] map:map];
 }
 
-- (NSArray *)ai_filterIsKindOfClass:(Class)aClass map:(id (^)(id object))map {
+- (NSArray *)ai_objectsOfClass:(Class)aClass map:(id (^)(id object))map {
     NSParameterAssert(aClass != nil);
     
     return [self ai_filter:^BOOL(id object) {
@@ -50,10 +50,10 @@
 #pragma mark -
 
 - (NSNumber *)ai_numberAtIndex:(NSUInteger)index {
-    return [self ai_objectAtIndex:index isKindOfClass:[NSNumber class]];
+    return [self ai_objectAtIndex:index ofClass:[NSNumber class]];
 }
 
-- (id)ai_objectAtIndex:(NSUInteger)index isKindOfClass:(Class)aClass {
+- (id)ai_objectAtIndex:(NSUInteger)index ofClass:(Class)aClass {
     if (self.count > index) {
         id object = self[index];
         return [object isKindOfClass:aClass] ? object : nil;
@@ -82,7 +82,7 @@
         
         if (predicate(obj) == NO) { continue; }
         
-        BOOL stop;
+        BOOL stop = NO;
         block(obj, i, &stop);
         
         if (stop == YES) { break; }

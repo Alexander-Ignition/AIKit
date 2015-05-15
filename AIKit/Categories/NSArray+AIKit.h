@@ -14,12 +14,12 @@
 - (NSArray *)ai_stringMap:(id (^)(NSString *string))map;
 - (NSArray *)ai_arrayMap:(id (^)(NSArray *array))map;
 
-- (NSArray *)ai_filterIsKindOfClass:(Class)aClass map:(id (^)(id object))map;
+- (NSArray *)ai_objectsOfClass:(Class)aClass map:(id (^)(id object))map;
 - (NSArray *)ai_filter:(BOOL (^)(id object))filter map:(id (^)(id object))map;
 
 
 - (NSNumber *)ai_numberAtIndex:(NSUInteger)index;
-- (id)ai_objectAtIndex:(NSUInteger)index isKindOfClass:(Class)aClass;
+- (id)ai_objectAtIndex:(NSUInteger)index ofClass:(Class)aClass;
 
 
 - (void)ai_respondsToSelector:(SEL)aSelector
