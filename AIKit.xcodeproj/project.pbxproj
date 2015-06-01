@@ -23,6 +23,8 @@
 		328F64BA1AFCCCC900EA0B4B /* MTLValueTransformer+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 328F64B91AFCCCC900EA0B4B /* MTLValueTransformer+AIKit.m */; };
 		3292236E1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292236D1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m */; };
 		329223701A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3292236F1A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m */; };
+		32A673681B1C3C5700C1D32A /* AICoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A673671B1C3C5700C1D32A /* AICoreDataStack.m */; };
+		32A6736C1B1C3CA000C1D32A /* NSManagedObject+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A6736B1B1C3CA000C1D32A /* NSManagedObject+AIKit.m */; };
 		32B3676F1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B3676E1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m */; };
 		32B5EC961AE797DB00D3393B /* AIMantleResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B5EC951AE797DB00D3393B /* AIMantleResponseSerializer.m */; };
 		32D974A61AE621C20067D024 /* AIHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D974A51AE621C20067D024 /* AIHTTPSessionManager.m */; };
@@ -69,6 +71,10 @@
 		3292236C1A9C7E2C0076815D /* NSJSONSerialization+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSJSONSerialization+AIKit.h"; path = "Categories/NSJSONSerialization+AIKit.h"; sourceTree = "<group>"; };
 		3292236D1A9C7E2C0076815D /* NSJSONSerialization+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSJSONSerialization+AIKit.m"; path = "Categories/NSJSONSerialization+AIKit.m"; sourceTree = "<group>"; };
 		3292236F1A9C7FB60076815D /* NSJSONSerialization_AIKitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSJSONSerialization_AIKitTests.m; sourceTree = "<group>"; };
+		32A673661B1C3C5700C1D32A /* AICoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AICoreDataStack.h; path = CoreData/AICoreDataStack.h; sourceTree = "<group>"; };
+		32A673671B1C3C5700C1D32A /* AICoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AICoreDataStack.m; path = CoreData/AICoreDataStack.m; sourceTree = "<group>"; };
+		32A6736A1B1C3CA000C1D32A /* NSManagedObject+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+AIKit.h"; path = "CoreData/NSManagedObject+AIKit.h"; sourceTree = "<group>"; };
+		32A6736B1B1C3CA000C1D32A /* NSManagedObject+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+AIKit.m"; path = "CoreData/NSManagedObject+AIKit.m"; sourceTree = "<group>"; };
 		32B3676D1AB1D0CE00AD4C9E /* NSFileManager+AIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+AIKit.h"; path = "Categories/NSFileManager+AIKit.h"; sourceTree = "<group>"; };
 		32B3676E1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+AIKit.m"; path = "Categories/NSFileManager+AIKit.m"; sourceTree = "<group>"; };
 		32B5EC941AE797DB00D3393B /* AIMantleResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMantleResponseSerializer.h; path = Networking/AIMantleResponseSerializer.h; sourceTree = "<group>"; };
@@ -144,6 +150,7 @@
 			children = (
 				116464D21A9B95CB00F273A8 /* AppDelegate.h */,
 				116464D31A9B95CB00F273A8 /* AppDelegate.m */,
+				32A673691B1C3C6100C1D32A /* CoreData */,
 				32D974A71AE621C80067D024 /* Networking */,
 				116464F71A9B964200F273A8 /* Categories */,
 				116464D51A9B95CB00F273A8 /* ViewController.h */,
@@ -201,6 +208,17 @@
 				32B3676E1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		32A673691B1C3C6100C1D32A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				32A673661B1C3C5700C1D32A /* AICoreDataStack.h */,
+				32A673671B1C3C5700C1D32A /* AICoreDataStack.m */,
+				32A6736A1B1C3CA000C1D32A /* NSManagedObject+AIKit.h */,
+				32A6736B1B1C3CA000C1D32A /* NSManagedObject+AIKit.m */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		32D974A71AE621C80067D024 /* Networking */ = {
@@ -414,8 +432,10 @@
 				32B3676F1AB1D0CE00AD4C9E /* NSFileManager+AIKit.m in Sources */,
 				116464D71A9B95CB00F273A8 /* ViewController.m in Sources */,
 				116464D41A9B95CB00F273A8 /* AppDelegate.m in Sources */,
+				32A6736C1B1C3CA000C1D32A /* NSManagedObject+AIKit.m in Sources */,
 				116464D11A9B95CB00F273A8 /* main.m in Sources */,
 				116464F61A9B963C00F273A8 /* NSDictionary+AIKit.m in Sources */,
+				32A673681B1C3C5700C1D32A /* AICoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
