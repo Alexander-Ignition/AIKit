@@ -18,13 +18,20 @@
     return [[NSFetchRequest alloc] initWithEntityName:[self ai_entityName]];
 }
 
-+ (NSEntityDescription *)ai_entityWithContext:(NSManagedObjectContext *)context {
-    return [NSEntityDescription entityForName:[self ai_entityName] inManagedObjectContext:context];
++ (instancetype)ai_insertNewObjectInContext:(NSManagedObjectContext *)context {
+    return [NSEntityDescription insertNewObjectForEntityForName:[self ai_entityName] inManagedObjectContext:context];
 }
 
-- (instancetype)initWithContext:(NSManagedObjectContext *)context {
-    NSEntityDescription *entity = [[self class] ai_entityWithContext:context];
-    return [self initWithEntity:entity insertIntoManagedObjectContext:context];
+- (BOOL)ai_save:(NSError **)error
+{
+    NSManagedObjectContext *context = self.managedObjectContext;
+    if (context == nil) {
+        return NO;
+    }
+    if (context.hasChanges == NO) {
+        return YES;
+    }
+    return [context save:error];
 }
 
 @end

@@ -14,8 +14,8 @@
 
 + (NSFetchRequest *)ai_fetchRequest;
 
-+ (NSEntityDescription *)ai_entityWithContext:(NSManagedObjectContext *)context;
++ (instancetype)ai_insertNewObjectInContext:(NSManagedObjectContext *)context;
 
-- (instancetype)initWithContext:(NSManagedObjectContext *)context;
+- (BOOL)ai_save:(NSError **)error;
 
 @end
